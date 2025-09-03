@@ -1,2 +1,17 @@
 # English2Video
-เล่นๆ กับการสร้าง Video บทเรียนภาษาอังกฤษ
+เล่นๆ สร้าง Video บทเรียนภาษาอังกฤษ
+
+1. สร้างข้อความบทภาษาอังกฤษ  หรือภาษาอังกฤษพร้อมคำแปล 
+	Rain check : ติดไว้ก่อนนะ
+
+	We’ll figure it out later : ค่อยว่ากันนะ
+
+	You’ll see : เดี๋ยวรู้เลย
+  ทำการบันทึกไว้ใน Text ไฟล์ เช่น TestA.txt
+
+2. ที่ Command Prompt Run : python myEnglish.py TestA.txt
+
+3. โปรแกรมจะสร้าง Folder ที่ชื่อ TestA พร้อม สร้างไฟล์เสียง TestA.mp3 และ ไฟล์ Subtitle TestA.srt
+
+4. สร้าง Video ด้วยคำสั่ง :ffmpeg -i "TestA1.mp3" -loop 1 -i "../bg.png" -vf "scale=1280:720,subtitles=TestA1.srt:force_style='Fontsize=36,PrimaryColour=&HFFFFFF&,Alignment=6,MarginV=120'" ^
+-c:v libx264 -tune stillimage -c:a aac -shortest "TestA1.mp4"
